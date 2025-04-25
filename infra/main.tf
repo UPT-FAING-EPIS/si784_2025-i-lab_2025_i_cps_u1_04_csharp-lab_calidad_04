@@ -46,7 +46,7 @@ resource "azurerm_service_plan" "appserviceplan" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   os_type             = "Linux"
-  sku_name            = "B1" # <-- Cambio sugerido: de F1 a B1
+  sku_name            = "F1" # <-- Cambio sugerido: de F1 a B1
 }
 
 # Create the Web App
