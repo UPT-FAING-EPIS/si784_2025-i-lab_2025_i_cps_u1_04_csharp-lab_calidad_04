@@ -37,7 +37,7 @@ resource "random_integer" "ri" {
 # Create the resource group in a región menos saturada
 resource "azurerm_resource_group" "rg" {
   name     = "upt-arg-${random_integer.ri.result}"
-  location = "southcentralus"
+  location = "westus"
 }
 
 # App Service Plan (SKU F1 suele fallar por capacidad agotada)
@@ -46,7 +46,7 @@ resource "azurerm_service_plan" "appserviceplan" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   os_type             = "Linux"
-  sku_name            = "B1" # <-- Cambio sugerido: de F1 a B1
+  sku_name            = "F1" # <-- Cambio sugerido: de F1 a B1
 }
 
 # Create the Web App
