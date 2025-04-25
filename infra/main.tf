@@ -37,7 +37,7 @@ resource "random_integer" "ri" {
 # Create the resource group in a región menos saturada
 resource "azurerm_resource_group" "rg" {
   name     = "upt-arg-${random_integer.ri.result}"
-  location = "southcentralus"
+  location = "westus"
 }
 
 # App Service Plan (SKU F1 suele fallar por capacidad agotada)
