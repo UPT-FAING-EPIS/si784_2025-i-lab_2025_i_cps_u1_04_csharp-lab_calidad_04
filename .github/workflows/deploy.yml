@@ -135,6 +135,7 @@ jobs:
             api-key: ${{ secrets.INFRACOST_API_KEY }}
       - name: infracost
         run: |
+            az appservice list-locations --sku B1 --output table
             cd infra
             infracost breakdown --path . --format html --out-file infracost-report.html
             sed -i '19,137d' infracost-report.html
